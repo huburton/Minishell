@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: phiascha <phiascha@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/14 17:52:30 by phiascha          #+#    #+#             */
+/*   Updated: 2024/10/14 17:52:35 by phiascha         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	srclen;
+	size_t	destlen;
+	size_t	i;
+
+	destlen = 0;
+	while (dest[destlen])
+		destlen++;
+	srclen = 0;
+	while (src[srclen])
+		srclen++;
+	if (size < destlen)
+		return (srclen + size);
+	i = 0;
+	while (src[i] && i < (size - destlen - 1) && (size - destlen) >= 1)
+	{
+		dest[destlen + i] = src[i];
+		i++;
+	}
+	dest[destlen + i] = '\0';
+	return (srclen + destlen);
+}
