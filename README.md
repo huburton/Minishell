@@ -1,5 +1,7 @@
 # Minishell
 
+*[Version française](README.fr.md)*
+
 A small Unix shell written in C, modelled on bash. School 19 (42 network) project, built in a pair.
 
 ```text
